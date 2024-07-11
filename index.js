@@ -9,12 +9,12 @@ app.use(cors()) // Enables CORS for all routes
 
 app.use(express.json())
 
-app.get('/customers', async (req, res, next) => {
+app.get('/customers',cors(), async (req, res, next) => {
     let customer = await db.collection('customers').find().toArray()
     return res.json(customer)
 })
 
-app.get('/transactions', async (req, res, next) => {
+app.get('/transactions',cors(), async (req, res, next) => {
     let transactions = await db.collection('transactions').find().toArray()
     return res.json(transactions)
 })
